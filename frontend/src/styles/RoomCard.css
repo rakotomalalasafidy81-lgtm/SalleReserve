@@ -1,0 +1,77 @@
+.room-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.room-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.room-card-header h3 {
+  font-size: 1.4rem;
+  margin: 0;
+  flex: 1;
+}
+
+.building-badge {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.room-card-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.room-info {
+  margin-bottom: 20px;
+}
+
+.room-info p {
+  margin-bottom: 12px;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.room-info strong {
+  color: var(--primary-color);
+}
+
+.room-status {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .room-card-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .building-badge {
+    align-self: flex-start;
+  }
+}
