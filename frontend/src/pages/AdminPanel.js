@@ -35,7 +35,7 @@ const AdminPanel = () => {
     }
   };
 
-  const fetchReservations = async () => {
+  const fetchReservations = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get('/api/reservations', {
