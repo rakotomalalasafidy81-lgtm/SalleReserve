@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Building2 } from 'lucide-react';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -17,6 +18,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo" onClick={() => navigate(user.role === 'admin' ? '/admin' : '/dashboard')}>
+          <span className="logo-badge"><Building2 size={20} strokeWidth={2} /></span>
           <h2>SalleReserve</h2>
         </div>
 
