@@ -23,7 +23,7 @@ const AdminPanel = () => {
     else fetchReservations();
   }, [activeTab]);
 
-  const fetchRooms = async () => {
+  const fetchRooms = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get('/api/rooms');
