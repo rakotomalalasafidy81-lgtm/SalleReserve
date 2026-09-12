@@ -30,7 +30,7 @@ const Header = () => {
 
         <div className="user-menu">
           <button className="user-button" onClick={() => setShowMenu(!showMenu)}>
-            <span className="user-icon">■</span>
+            <span className="user-icon">{(user.name || 'U').charAt(0).toUpperCase()}</span>
             <span>{user.name || 'Utilisateur'}</span>
           </button>
           {showMenu && (
