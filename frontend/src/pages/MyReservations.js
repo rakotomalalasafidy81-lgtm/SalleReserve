@@ -1,4 +1,4 @@
-ximport React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import '../styles/MyReservations.css';
