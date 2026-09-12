@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CalendarCheck, Clock, History, ShieldCheck, ArrowRight } from 'lucide-react';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -41,34 +42,34 @@ const Home = () => {
       </header>
 
       <main className="home-content">
-        <section className="hero">
+        <section className="hero fade-in-up">
           <h2>Réservez vos salles facilement</h2>
           <p>Une plateforme simple et intuitive pour gérer vos réservations de salles de classe</p>
           <button className="btn-large" onClick={() => navigate(token ? '/dashboard' : '/register')}>
-            Commencer
+            Commencer <ArrowRight size={18} strokeWidth={2} className="btn-large-icon" />
           </button>
         </section>
 
         <section className="features">
           <h3>Nos fonctionnalités</h3>
           <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">■</div>
+            <div className="feature-card" style={{ animationDelay: '0.05s' }}>
+              <div className="feature-icon"><CalendarCheck size={28} strokeWidth={1.75} /></div>
               <h4>Réservation Simple</h4>
               <p>Réservez une salle en quelques clics</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">■</div>
+            <div className="feature-card" style={{ animationDelay: '0.15s' }}>
+              <div className="feature-icon"><Clock size={28} strokeWidth={1.75} /></div>
               <h4>Horaires Flexibles</h4>
               <p>Choisissez votre créneau horaire</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">■</div>
+            <div className="feature-card" style={{ animationDelay: '0.25s' }}>
+              <div className="feature-icon"><History size={28} strokeWidth={1.75} /></div>
               <h4>Historique Complet</h4>
               <p>Accédez à vos réservations passées</p>
             </div>
-            <div className="feature-card">
-              <div className="feature-icon">■</div>
+            <div className="feature-card" style={{ animationDelay: '0.35s' }}>
+              <div className="feature-icon"><ShieldCheck size={28} strokeWidth={1.75} /></div>
               <h4>Gestion Admin</h4>
               <p>Contrôle total sur les salles</p>
             </div>
