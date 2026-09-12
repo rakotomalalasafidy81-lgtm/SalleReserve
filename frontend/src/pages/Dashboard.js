@@ -61,19 +61,28 @@ const Dashboard = () => {
           <p>Sélectionnez une salle et choisissez votre créneau horaire</p>
         </div>
 
-        <div className="filters-section">
+      <div className="filters-section">
           <div className="filter-group">
-            <label>Filtrer par bâtiment:</label>
-            <select 
-              value={filterBuilding} 
-              onChange={(e) => setFilterBuilding(e.target.value)}
-              className="filter-select"
-            >
-              <option value="">Tous les bâtiments</option>
+            <label>Filtrer par bâtiment</label>
+            <div className="filter-pills">
+              <button
+                type="button"
+                className={`filter-pill ${filterBuilding === '' ? 'active' : ''}`}
+                onClick={() => setFilterBuilding('')}
+              >
+                Tous les bâtiments
+              </button>
               {buildings.map(building => (
-                <option key={building} value={building}>{building}</option>
+                <button
+                  type="button"
+                  key={building}
+                  className={`filter-pill ${filterBuilding === building ? 'active' : ''}`}
+                  onClick={() => setFilterBuilding(building)}
+                >
+                  {building}
+                </button>
               ))}
-            </select>
+            </div>
           </div>
         </div>
 
