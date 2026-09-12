@@ -17,12 +17,6 @@ const AdminPanel = () => {
     equipment: []
   });
   const token = localStorage.getItem('token');
-
-  useEffect(() => {
-    if (activeTab === 'rooms') fetchRooms();
-    else fetchReservations();
-  }, [activeTab]);
-
   const fetchRooms = useCallback(async () => {
     try {
       setLoading(true);
@@ -33,8 +27,7 @@ const AdminPanel = () => {
     } finally {
       setLoading(false);
     }
-  };
-
+  }, []);
   const fetchReservations = useCallback(async () => {
     try {
       setLoading(true);
@@ -47,7 +40,14 @@ const AdminPanel = () => {
     } finally {
       setLoading(false);
     }
-  };
+  },[token]);
+  useEffect(() => {
+  if (activeTab === 'rooms') {
+    fetchRooms();
+  } else {
+    fetchReservations();
+  }
+}, [activeTab, fetchRooms, fetchReservations]);
 
   const handleFormChange = (e) => {
     setFormData({
