@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+ximport React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import '../styles/MyReservations.css';
@@ -9,11 +9,7 @@ const MyReservations = () => {
   const [error, setError] = useState('');
   const token = localStorage.getItem('token');
 
-  useEffect(() => {
-    fetchReservations();
-  }, []);
-
-  const fetchReservations = async () => {
+  const fetchReservations = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get('/api/reservations/user/my-reservations', {
