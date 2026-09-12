@@ -13,11 +13,7 @@ const Dashboard = () => {
   const [showModal, setShowModal] = useState(false);
   const [filterBuilding, setFilterBuilding] = useState('');
 
-  useEffect(() => {
-    fetchRooms();
-  }, [filterBuilding]);
-
-  const fetchRooms = async () => {
+  const fetchRooms = useCallback(async () => {
     try {
       setLoading(true);
       const url = filterBuilding 
