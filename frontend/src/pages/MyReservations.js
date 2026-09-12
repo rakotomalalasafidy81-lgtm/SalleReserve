@@ -22,7 +22,7 @@ const MyReservations = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
 
   const handleCancel = async (reservationId) => {
     if (window.confirm('Êtes-vous sûr de vouloir annuler cette réservation?')) {
