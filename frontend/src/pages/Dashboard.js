@@ -27,7 +27,7 @@ const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filterBuilding]);
 
   const handleReserveClick = (room) => {
     setSelectedRoom(room);
