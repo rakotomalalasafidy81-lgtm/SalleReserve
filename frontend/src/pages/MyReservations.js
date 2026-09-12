@@ -24,6 +24,10 @@ const MyReservations = () => {
     }
   }, [token]);
 
+  useEffect(() => {
+    fetchReservations();
+  }, [fetchReservations]);
+
   const handleCancel = async (reservationId) => {
     if (window.confirm('Êtes-vous sûr de vouloir annuler cette réservation?')) {
       try {
