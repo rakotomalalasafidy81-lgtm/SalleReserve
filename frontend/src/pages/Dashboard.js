@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -28,6 +29,10 @@ const Dashboard = () => {
       setLoading(false);
     }
   }, [filterBuilding]);
+
+  useEffect(() => {
+    fetchRooms();
+  }, [fetchRooms]);
 
   const handleReserveClick = (room) => {
     setSelectedRoom(room);
