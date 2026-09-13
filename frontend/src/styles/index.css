@@ -59,6 +59,13 @@ h1, h2, h3, h4, h5, h6 {
   transform: none;
 }
 
+.btn-primary:active,
+.btn-secondary:active,
+.btn-large:active,
+.btn-reserve:active {
+  transform: scale(0.97);
+}
+
 .btn-secondary {
   background-color: var(--secondary-color);
   color: white;
@@ -191,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   margin-bottom: 20px;
   border-left: 4px solid var(--danger-color);
+  animation: popIn 0.25s ease;
 }
 
 .success-message {
@@ -200,14 +208,45 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 6px;
   margin-bottom: 20px;
   border-left: 4px solid var(--success-color);
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Chargement */
 .loading {
-  text-align: center;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 60px 20px;
   font-size: 1.1rem;
   color: var(--text-light);
+}
+
+.loading::before {
+  content: '';
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Status badges */
