@@ -36,7 +36,7 @@
 }
 
 .home-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
   padding: 40px 20px;
   display: flex;
@@ -95,7 +95,7 @@
 
 .header-buttons .btn-primary {
   background-color: white;
-  color: #667eea;
+  color: #4f46e5;
 }
 
 .header-buttons .btn-primary:hover {
@@ -268,4 +268,4 @@
     width: 100%;
     justify-content: center;
   }
-  }
+}
