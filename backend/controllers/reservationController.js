@@ -1,5 +1,6 @@
 const Reservation = require('../models/Reservation');
 const Room = require('../models/Room');
+const { sendReservationConfirmation, sendReservationCancellation } = require('../utils/email');
 
 // @route   GET /api/reservations
 // @desc    Récupérer toutes les réservations (Admin)
@@ -98,6 +99,9 @@ exports.createReservation = async (req, res) => {
 
     await reservation.populate('room', 'name building capacity');
 
+    // Envoi de l'email de confirmation (n'empêche pas la réservation si ça échoue)
+    sendReservationConfirmation(req.user, reservation);
+
     res.status(201).json({
       success: true,
       reservation
@@ -153,6 +157,10 @@ exports.cancelReservation = async (req, res) => {
 
     reservation.status = 'cancelled';
     await reservation.save();
+    await reservation.populate('room', 'name building capacity');
+
+    // Envoi de l'email d'annulation (n'empêche pas l'annulation si ça échoue)
+    sendReservationCancellation(req.user, reservation);
 
     res.status(200).json({
       success: true,
