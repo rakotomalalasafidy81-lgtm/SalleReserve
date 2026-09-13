@@ -1,8 +1,44 @@
 .home {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  overflow: hidden;
+}
+
+.home::before,
+.home::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home::before {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: 140px;
+  right: -180px;
+}
+
+.home::after {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #4f46e5, transparent 70%);
+  bottom: 60px;
+  left: -160px;
+}
+
+.home-header,
+.home-content,
+.home-footer {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fadeInUp {
@@ -120,9 +156,23 @@
 }
 
 .hero {
+  position: relative;
   text-align: center;
   max-width: 800px;
   margin: 0 auto 80px;
+  padding-top: 20px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20px -40px auto -40px;
+  height: 220px;
+  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.18) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 100% at 50% 0%, black 40%, transparent 90%);
+  mask-image: radial-gradient(ellipse 60% 100% at 50% 0%, black 40%, transparent 90%);
+  z-index: -1;
 }
 
 .hero h2 {
