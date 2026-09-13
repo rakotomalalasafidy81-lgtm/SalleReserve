@@ -218,8 +218,8 @@ const AdminPanel = () => {
                   <tbody>
                     {reservations.map(res => (
                       <tr key={res._id}>
-                        <td>{res.user.name}</td>
-                        <td>{res.room.name}</td>
+                        <td>{res.user ? res.user.name : 'Utilisateur supprimé'}</td>
+                        <td>{res.room ? res.room.name : 'Salle supprimée'}</td>
                         <td>{new Date(res.date).toLocaleDateString('fr-FR')}</td>
                         <td>{res.startTime} - {res.endTime}</td>
                         <td><span className={`status ${res.status}`}>{res.status}</span></td>
