@@ -4,7 +4,7 @@ import '../styles/RoomCard.css';
 const RoomCard = ({ room, onReserve }) => {
   return (
     <div className="room-card">
-      <div className="room-card-header">
+      <div className="room-card-header" data-building={room.building}>
         <h3>{room.name}</h3>
         <span className="building-badge">{room.building}</span>
       </div>
