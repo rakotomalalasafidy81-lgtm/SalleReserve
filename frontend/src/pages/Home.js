@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CalendarCheck, Clock, History, ShieldCheck, ArrowRight } from 'lucide-react';
+import { CalendarCheck, Clock, History, ShieldCheck, ArrowRight, Building2 } from 'lucide-react';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -11,7 +11,10 @@ const Home = () => {
     <div className="home">
       <header className="home-header">
         <div className="header-content">
-          <h1>SalleReserve</h1>
+          <div className="brand-lockup">
+            <span className="logo-badge logo-badge-light"><Building2 size={24} strokeWidth={2} /></span>
+            <h1>SalleReserve</h1>
+          </div>
           <p>Système Intégré de Réservation de Salles</p>
         </div>
         <div className="header-buttons">
