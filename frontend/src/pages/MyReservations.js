@@ -63,13 +63,13 @@ const MyReservations = () => {
               reservations.map(reservation => (
                 <div key={reservation._id} className="reservation-card">
                   <div className="reservation-header">
-                    <h3>{reservation.room.name}</h3>
+                    <h3>{reservation.room ? reservation.room.name : 'Salle supprimée'}</h3>
                     <span className={`status ${reservation.status}`}>
                       {reservation.status}
                     </span>
                   </div>
                   <div className="reservation-details">
-                    <p><strong>Bâtiment:</strong> {reservation.room.building}</p>
+                    <p><strong>Bâtiment:</strong> {reservation.room ? reservation.room.building : '—'}</p>
                     <p><strong>Date:</strong> {new Date(reservation.date).toLocaleDateString('fr-FR')}</p>
                     <p><strong>Horaire:</strong> {reservation.startTime} - {reservation.endTime}</p>
                     <p><strong>Motif:</strong> {reservation.purpose}</p>
