@@ -16,12 +16,25 @@
 }
 
 .room-card-header {
+  position: relative;
   background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   color: white;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: start;
+  overflow: hidden;
+}
+
+.room-card-watermark {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  z-index: -1;
+  color: white;
+  opacity: 0.22;
+  transform: rotate(8deg);
+  pointer-events: none;
 }
 
 /* Accent par bâtiment */
