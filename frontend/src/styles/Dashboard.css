@@ -1,17 +1,59 @@
 .dashboard {
+  position: relative;
   min-height: 100vh;
   background: var(--light-bg);
+  overflow: hidden;
+}
+
+.dashboard::before,
+.dashboard::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dashboard::before {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #7c3aed, transparent 70%);
+  top: -120px;
+  right: -140px;
+}
+
+.dashboard::after {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #4f46e5, transparent 70%);
+  bottom: -100px;
+  left: -140px;
 }
 
 .dashboard-container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 .dashboard-header {
+  position: relative;
   text-align: center;
   margin-bottom: 50px;
+}
+
+.dashboard-header::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  margin: 0 auto 18px;
 }
 
 .dashboard-header h1 {
