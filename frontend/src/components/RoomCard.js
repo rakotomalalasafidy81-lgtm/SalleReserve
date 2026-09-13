@@ -1,10 +1,22 @@
 import React from 'react';
+import { Presentation, Landmark, Zap, Cpu, Building2 } from 'lucide-react';
 import '../styles/RoomCard.css';
 
+const BUILDING_ICONS = {
+  Belaza: Building2,
+  Amphi: Presentation,
+  Principal: Landmark,
+  Elec: Zap,
+  STIC: Cpu
+};
+
 const RoomCard = ({ room, onReserve }) => {
+  const BuildingIcon = BUILDING_ICONS[room.building] || Building2;
+
   return (
     <div className="room-card">
       <div className="room-card-header" data-building={room.building}>
+        <BuildingIcon className="room-card-watermark" size={90} strokeWidth={1.5} />
         <h3>{room.name}</h3>
         <span className="building-badge">{room.building}</span>
       </div>
