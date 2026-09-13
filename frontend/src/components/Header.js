@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { Building2 } from 'lucide-react';
 import '../styles/Header.css';
 
@@ -23,10 +23,10 @@ const Header = () => {
         </div>
 
         <nav className="nav">
-          <a href="/dashboard" className="nav-link">Réserver</a>
-          <a href="/my-reservations" className="nav-link">Mes Réservations</a>
+          <NavLink to="/dashboard" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>Réserver</NavLink>
+          <NavLink to="/my-reservations" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>Mes Réservations</NavLink>
           {user.role === 'admin' && (
-            <a href="/admin" className="nav-link admin-link">Admin</a>
+            <NavLink to="/admin" className={({ isActive }) => `nav-link admin-link${isActive ? ' active' : ''}`}>Admin</NavLink>
           )}
         </nav>
 
