@@ -1,11 +1,29 @@
 import React from 'react';
-import { Presentation, Landmark, Zap, Cpu, Building2 } from 'lucide-react';
+import { Presentation, Zap, Cpu, Building2 } from 'lucide-react';
 import '../styles/RoomCard.css';
+
+const BuildingsTrio = ({ className, size = 90, strokeWidth = 1.5 }) => (
+  <svg
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={strokeWidth}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="10" width="5.5" height="11" />
+    <rect x="9.25" y="5.5" width="5.5" height="15.5" />
+    <rect x="16.5" y="12.5" width="5.5" height="8.5" />
+  </svg>
+);
 
 const BUILDING_ICONS = {
   Belaza: Building2,
   Amphi: Presentation,
-  Principal: Landmark,
+  Principal: BuildingsTrio,
   Elec: Zap,
   STIC: Cpu
 };
