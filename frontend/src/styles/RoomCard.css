@@ -24,6 +24,23 @@
   align-items: start;
 }
 
+/* Accent par bâtiment */
+.room-card-header[data-building="Amphi"] {
+  background: linear-gradient(135deg, #db2777 0%, #f472b6 100%);
+}
+
+.room-card-header[data-building="Principal"] {
+  background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+}
+
+.room-card-header[data-building="Elec"] {
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+
+.room-card-header[data-building="STIC"] {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+}
+
 .room-card-header h3 {
   font-size: 1.4rem;
   margin: 0;
