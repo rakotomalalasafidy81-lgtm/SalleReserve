@@ -89,6 +89,30 @@ const AdminPanel = () => {
     }
   };
 
+  const handleApproveReservation = async (reservationId) => {
+    try {
+      await axios.patch(`/api/reservations/${reservationId}/approve`, {}, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      fetchReservations();
+    } catch (err) {
+      alert(err.response?.data?.message || 'Erreur lors de l\'approbation');
+    }
+  };
+
+  const handleRejectReservation = async (reservationId) => {
+    if (window.confirm('Refuser cette réservation ?')) {
+      try {
+        await axios.patch(`/api/reservations/${reservationId}/reject`, {}, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        fetchReservations();
+      } catch (err) {
+        alert(err.response?.data?.message || 'Erreur lors du refus');
+      }
+    }
+  };
+
   return (
     <div className="admin-panel">
       <Header />
@@ -213,6 +237,7 @@ const AdminPanel = () => {
                       <th>Date</th>
                       <th>Horaire</th>
                       <th>Statut</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -223,6 +248,27 @@ const AdminPanel = () => {
                         <td>{new Date(res.date).toLocaleDateString('fr-FR')}</td>
                         <td>{res.startTime} - {res.endTime}</td>
                         <td><span className={`status ${res.status}`}>{res.status}</span></td>
+                        <td>
+                          {res.status === 'pending' ? (
+                            <>
+                              <button
+                                className="btn-primary"
+                                onClick={() => handleApproveReservation(res._id)}
+                              >
+                                Approuver
+                              </button>
+                              {' '}
+                              <button
+                                className="btn-delete"
+                                onClick={() => handleRejectReservation(res._id)}
+                              >
+                                Refuser
+                              </button>
+                            </>
+                          ) : (
+                            <span>—</span>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
