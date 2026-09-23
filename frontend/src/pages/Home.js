@@ -114,7 +114,6 @@ const Home = () => {
 
       <footer className="home-footer">
         <p>&copy; 2026 SalleReserve. Tous droits réservés.</p>
-        <p>&copy;  ESP-Antsiranana. "La polyvalence par excellence".</p>
       </footer>
     </div>
   );
